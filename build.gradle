@@ -1,0 +1,91 @@
+plugins {
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+ext {
+ //properties here, versions and etc.
+	setProperty("springBootVersion", "2.6.2");
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'java-library'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'jacoco'
+
+	sourceCompatibility = '17'
+	group = groupPath as Object
+	version = projectVersion as Object
+
+	configurations {
+		compileOnly {
+			extendsFrom annotationProcessor
+		}
+	}
+
+	dependencies {
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+		annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+		implementation 'org.springframework.boot:spring-boot-starter'
+	}
+
+	repositories {
+		mavenCentral()
+	}
+
+	test {
+		setJvmArgs([
+				'-Dspring.profiles.active=test'
+		])
+		useJUnitPlatform()
+		finalizedBy jacocoTestReport
+	}
+
+	jacocoTestReport {
+		dependsOn test
+		reports {
+			xml.enabled(true)
+		}
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+		}
+	}
+}
+
+jar {
+	enabled = false
+}
+
+project(':config') {
+	jar {
+		archivesBaseName = "${rootProject.name}"
+		enabled = false
+	}
+
+	dependencies {
+		implementation project(':core')
+		implementation project(':infra')
+		runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	}
+}
+
+project(':core') {
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter-api'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+	}
+
+}
+
+project(':infra') {
+	dependencies {
+		implementation project(':core')
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+}
