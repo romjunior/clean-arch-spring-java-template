@@ -1,4 +1,4 @@
-package com.example;
+package com.example.infra.in;
 
 import com.example.domain.Card;
 import com.example.ports.in.QueryCreditCard;

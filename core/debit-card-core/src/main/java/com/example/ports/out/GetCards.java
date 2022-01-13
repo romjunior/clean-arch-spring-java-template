@@ -1,4 +1,4 @@
-package com.example.ports;
+package com.example.ports.out;
 
 import com.example.domain.Card;
 

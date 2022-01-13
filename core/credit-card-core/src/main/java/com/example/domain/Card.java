@@ -1,2 +1,3 @@
-package com.example.domain;public class Card {
-}
+package com.example.domain;
+
+public record Card(String name, String code){}

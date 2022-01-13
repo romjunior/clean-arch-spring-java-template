@@ -68,13 +68,29 @@ project(':config') {
 	}
 
 	dependencies {
-		implementation project(':core')
-		implementation project(':infra')
+		implementation project(':core:credit-card-core')
+		implementation project(':core:debit-card-core')
+		implementation project(':infra:credit-card-infra')
+		implementation project(':infra:debit-card-infra')
 		runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	}
 }
 
 project(':core') {
+	jar {
+		enabled = false;
+	}
+}
+
+project(':core:credit-card-core') {
+	dependencies {
+		testImplementation 'org.junit.jupiter:junit-jupiter-api'
+		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+	}
+
+}
+
+project(':core:debit-card-core') {
 	dependencies {
 		testImplementation 'org.junit.jupiter:junit-jupiter-api'
 		testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
@@ -83,8 +99,23 @@ project(':core') {
 }
 
 project(':infra') {
+	jar {
+		enabled = false
+	}
+}
+
+project(':infra:credit-card-infra') {
 	dependencies {
-		implementation project(':core')
+		implementation project(':core:credit-card-core')
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+}
+
+project(':infra:debit-card-infra') {
+	dependencies {
+		implementation project(':core:credit-card-core')
+		implementation project(':core:debit-card-core')
 		implementation 'org.springframework.boot:spring-boot-starter-web'
 		testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	}

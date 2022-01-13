@@ -1,4 +1,10 @@
 package com.example.ports.in;
 
-public interface GetDebitCard {
+import com.example.domain.Card;
+
+import java.util.List;
+
+public interface QueryDebitCard {
+
+    List<Card> getCards(final String id);
 }
