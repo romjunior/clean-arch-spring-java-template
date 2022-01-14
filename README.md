@@ -1,14 +1,13 @@
 # Template Clean Architecture Spring boot com Java
-> Template utilizando os conceitos do livro de Clean architecture do Uncle Bon
 
-## Intro 
+Template utilizando os conceitos do livro de Clean architecture do Uncle Bob. O princípio do Clean Architecture é tornar o negócio o centro da aplicação e abstrair os detalhes(integrações com banco, web e etc) do negócio.
 
-O princípio do Clean Architecture é tornar o negócio o centro da aplicação e abstrair os detalhes(integrações com banco, web e etc) do negócio.
+## Intro
 
 Basicamente as arquiteturas Hexagonal, Clean, DCI e BCE seguem os mesmo principios, mesmo com mudança na forma de estruturar.
-* Independência de frameworks - Independência de frameworks para estruturar a sua aplicação(evita vendor-lock, amarração a frameworks e outras vantagens a seguir)
-* Testável - Negócio pode ser testado sem precisar dos detalhes(UI, Banco, Web e etc)
-* Independência de UI e Banco de Dados - como é centralizado no negócio a mudança parte do stakeholder que é o dono.
+* **Independência de frameworks**: Independência de frameworks para estruturar a sua aplicação(evita vendor-lock, amarração a frameworks e outras vantagens a seguir)
+* **Testável**: Negócio pode ser testado sem precisar dos detalhes(UI, Banco, Web e etc)
+* **Independência de UI e Banco de Dados**: como é centralizado no negócio a mudança parte do stakeholder que é o dono.
 
 ## Camadas
 
@@ -32,7 +31,7 @@ Camada mais externa, composta por frameworks, drivers, ferramentas externas, ban
 
 ## Projeto
 
-É um projeto Spring boot com Java 17 que é separado em três módulos de nível de organização de projetos:
+É um projeto separado em três módulos de nível de organização de projeto:
 * [core](core)
   > Responsável pela regra de negócio, é o módulo que não devem de jeito nenhum possuir dependência com outros módulos, ele é o centro da aplicação.
 * [infra](infra)
@@ -42,9 +41,9 @@ Camada mais externa, composta por frameworks, drivers, ferramentas externas, ban
 
 ![Clean Arch Project](img/clean-arch-project.png)
 
-##SOLID
+## SOLID
 
-Obviamente Clean Arch e SOLID andam de mãos dadas então é interessante que você aplique também os conceitos neste projeto.
+Obviamente Clean Arch e SOLID andam de mãos dadas então é interessante que aplique também os conceitos neste projeto.
 
 1. **SRP**: Single Responsability Principle
 2. **OCP**: Open Closed Principle
@@ -52,4 +51,4 @@ Obviamente Clean Arch e SOLID andam de mãos dadas então é interessante que vo
 4. **ISP**: Interface Segregation Principle
 5. **DIP**: Dependency Inversion Principle
 
-> Existe uma outra branch que aplica também o clean arch, mas para projetos maiores e que as funcionalidade precisem possuir os seus módulos de core e infra separados. [Veja](/romjunior/clean-arch-spring-java-template/tree/sub-module)
+> Existe outra branch que aplica também o clean arch, mas para projetos maiores e que as funcionalidades precisem possuir os seus módulos de core e infra separados. [Veja](tree/sub-module)
