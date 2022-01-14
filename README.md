@@ -33,7 +33,7 @@ Camada mais externa, composta por frameworks, drivers, ferramentas externas, ban
 
 É um projeto separado em três módulos de nível de organização de projeto:
 * [core](core)
-  > Responsável pela regra de negócio, é o módulo que não devem de jeito nenhum possuir dependência com outros módulos, ele é o centro da aplicação.
+  > Responsável pela regra de negócio, é o módulo que não deve possuir dependência com outros módulos, ele é o centro da aplicação.
 * [infra](infra)
   > Responsável pelas integrações(web, banco, filas, drivers e etc) tanto de entrada quanto de saída, e ele sim deve conhecer e depender do módulo core.
 * [config](config)
