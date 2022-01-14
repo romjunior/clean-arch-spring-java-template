@@ -39,7 +39,9 @@ Camada mais externa, composta por frameworks, drivers, ferramentas externas, ban
 * [config](config)
   > Basicamente é o start(entrypoint) da aplicação e também responsável por compilar todos os módulos em um projeto só.
 
-![Clean Arch Project](img/clean-arch-project.png)
+<p align="center">
+  <img src="img/clean-arch-project.png" alt="Clean Arch Project"/>
+</p>
 
 ## SOLID
 
