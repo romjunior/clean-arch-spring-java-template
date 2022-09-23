@@ -25,7 +25,7 @@ subprojects {
 	}
 
 	dependencies {
-		compileOnly 'org.projectlombok:lombok'
+		implementation 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
 		annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 		implementation 'org.springframework.boot:spring-boot-starter'
@@ -70,6 +70,7 @@ project(':config') {
 	dependencies {
 		implementation project(':core')
 		implementation project(':infra')
+		implementation 'org.springframework.boot:spring-boot-starter-web'
 		runtimeOnly 'org.springframework.boot:spring-boot-devtools'
 	}
 }

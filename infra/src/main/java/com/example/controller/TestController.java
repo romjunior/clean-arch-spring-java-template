@@ -1,4 +1,4 @@
-package com.example;
+package com.example.controller;
 
 import com.example.ports.in.UseCaseSearchExample;
 import org.springframework.http.ResponseEntity;
