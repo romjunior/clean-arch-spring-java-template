@@ -1,11 +1,11 @@
 plugins {
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
 
 ext {
  //properties here, versions and etc.
-	setProperty("springBootVersion", "2.6.2");
+	setProperty("springBootVersion", "2.7.4");
 }
 
 subprojects {
